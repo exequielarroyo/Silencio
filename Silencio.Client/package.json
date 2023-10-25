@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "ui:dev": "npx tailwindcss -c tailwind.config.js -i ./tailwind.input.css -o ./wwwroot/css/app.css --watch",
+    "ui:build": "npx tailwindcss -c tailwind.config.js -i ./tailwind.input.css -o ./wwwroot/css/app.css --minify",
+    "postinstall": "cd ../Silencio && dotnet run --AppTasks=migrate",
+    "migrate": "cd ../Silencio && dotnet run Silencio.csproj --AppTasks=migrate",
+    "revert:last": "cd ../Silencio && dotnet run --AppTasks=migrate.revert:last",
+    "revert:all": "cd ../Silencio && dotnet run --AppTasks=migrate.revert:all",
+    "rerun:last": "npm run revert:last && npm run migrate"
+  }
+}
